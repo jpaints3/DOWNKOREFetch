@@ -1,6 +1,6 @@
-import wixData from 'wix-data';
-import {created, serverError} from 'wix-http-functions';
-import fetch from 'wix-fetch';
+const firebase = require("firebase");
+// Required for side-effects
+require("firebase/firestore");
 
 async function sendFiles(URL, DATA){
     await fetch(URL, {
@@ -13,5 +13,5 @@ async function sendFiles(URL, DATA){
     return response.json();
 }
 
-sent = sendFiles(URL, DATA);
-const info = await(wixData.insert('Team', sent));
+document.getElementById('uploadBtn').onclick() = sendFiles(URL, DATA);
+
