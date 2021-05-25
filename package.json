@@ -1,8 +1,13 @@
 {
   "dependencies": {
     "body-parser": "^1.19.0",
+    "browserify": "^17.0.0",
+    "browserify-fs": "^1.0.0",
+    "ejs": "^3.1.6",
+    "esmify": "^2.1.1",
     "express": "^4.17.1",
     "firebase": "^8.6.1",
+    "firebase-admin": "^9.8.0",
     "fs": "^0.0.1-security",
     "morgan": "^1.10.0",
     "npm": "^7.13.0",
