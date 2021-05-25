@@ -38,7 +38,7 @@ fetch(fileUrl)
             return response.json();
         }
 
-        document.getElementById('uploadBtn').onclick() = sendFiles(URL, DATA); */
+        document.getElementById('uploadBtn').onclick() = sendFiles(URL, DATA);  */
     });
 
 
