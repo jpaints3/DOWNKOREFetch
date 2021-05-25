@@ -10,8 +10,8 @@ PROJECTId = '';
 const fileUrl = window.location.href + 'tokensPlusAuth.txt'; // provide file location
 
 fetch(fileUrl)
-   .then( r => r.text() )
-   .then( t => {
+    .then(r => r.text())
+    .then(t => {
         console.log(t.split(/\n/));
         let tokenINFO = t.split(/\n/);
         APIKey = tokenINFO[1];

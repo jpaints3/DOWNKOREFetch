@@ -9,20 +9,20 @@ var bodyParser = require("body-parser")
 
 var app = express()
 
-app.get('/', function(request, response){
+app.get('/', function (request, response) {
     response.render('index.ejs')
 })
 
 app.set('view engine', 'ejs')
 
-app.use (express.static('views'))
-app.set ('views', __dirname)
+app.use(express.static('views'))
+app.set('views', __dirname)
 app.use(logger('dev'))
 
 var port = process.env.PORT || 3000
 
-app.listen(port, function(){
-    console.log (`App running on http://${hostname}:${port}/`)
+app.listen(port, function () {
+    console.log(`App running on http://${hostname}:${port}/`)
 })
 
 //use npm init
