@@ -42,8 +42,7 @@ fetch(fileUrl)
 
         let dancerName = document.getElementById('dancerName').value;
         let inputFiles = document.getElementById('inputFiles').files;
-        document.getElementById('uploadBtn').onclick() = sendFiles(videosRef, dancerName, inputFiles);
-
+        document.getElementById('uploadBtn').addEventListener('click', sendFiles(videosRef, dancerName, inputFiles));
     });
 
 
