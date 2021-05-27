@@ -1,5 +1,6 @@
-const firebase = require('firebase/app');
-require('firebase/firestore');
+const firebase = require('firebase/app').default;
+require('firebase/functions');
+require('firebase/storage');
 
 const fileUrl = window.location.href + 'tokensPlusAuth.txt'; // provide file location
 
@@ -7,7 +8,7 @@ fetch(fileUrl)
     .then(r => r.text())
     .then(t => {
 
-        //<------------- Initialize Firestore Storage ------------->
+        //<------------- Initialize Firebase Storage ------------->
 
         // access the text file with sensitive information
         console.log(t.split(/\n/));
@@ -15,13 +16,13 @@ fetch(fileUrl)
 
         // access firebase storage with this information
         let firebaseConfig = {
-            apiKey: tokenINFO[2],
-            authDomain: tokenINFO[4],
-            databaseURL: tokenINFO[6],
-            storageBucket: tokenINFO[10]
+            apiKey: tokenINFO[1],
+            authDomain: tokenINFO[3],
+            databaseURL: tokenINFO[5],
+            storageBucket: tokenINFO[9]
         };
 
-        firebase.initializeApp(firebaseConfig);
+        const app = firebase.initializeApp(firebaseConfig);
         var storage = firebase.storage();
 
         // create location references
