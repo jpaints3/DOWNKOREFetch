@@ -8,7 +8,7 @@ fetch(fileUrl)
     .then(t => {
         console.log(t.split(/\n/));
         let tokenINFO = t.split(/\n/);
-        
+
         let firebaseConfig = {
             apiKey: tokenINFO[2],
             authDomain: tokenINFO[4],
@@ -27,12 +27,10 @@ fetch(fileUrl)
 
         fileRef.put(file).then(() => {
             console.log('Uploaded a file!');
-          });
+        });
 
 
-        /*
-
-        document.getElementById('uploadBtn').onclick() = sendFiles(URL, DATA);  */
+        /*document.getElementById('uploadBtn').onclick() = sendFiles(URL, DATA);  */
     });
 
 
