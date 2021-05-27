@@ -1,12 +1,6 @@
 const firebase = require('firebase/app');
 require('firebase/firestore');
 
-
-let tokenINFO = '';
-APIKey = '';
-AUTHDomain = '';
-PROJECTId = '';
-
 const fileUrl = window.location.href + 'tokensPlusAuth.txt'; // provide file location
 
 fetch(fileUrl)
@@ -14,31 +8,29 @@ fetch(fileUrl)
     .then(t => {
         console.log(t.split(/\n/));
         let tokenINFO = t.split(/\n/);
-        APIKey = tokenINFO[1];
-        AUTHDomain = tokenINFO[3];
-        PROJECTId = tokenINFO[5];
 
-        /*/ Initialize Cloud Firestore through Firebase
-        firebase.initializeApp({
-            apiKey: APIKey,
-            authDomain: AUTHDomain,
-            projectId: PROJECTId
+        let firebaseConfig = {
+            apiKey: tokenINFO[2],
+            authDomain: tokenINFO[4],
+            databaseURL: tokenINFO[6],
+            storageBucket: tokenINFO[10]
+        };
+
+        firebase.initializeApp(firebaseConfig);
+        var storage = firebase.storage();
+        var storageRef = storage.ref();
+        var videosRef = storageRef.child('videos');
+
+        let file = null;
+        let fileName = '';
+        let fileRef = videosRef.child(fileName);
+
+        fileRef.put(file).then(() => {
+            console.log('Uploaded a file!');
         });
 
-        var db = firebase.firestore();
 
-        async function sendFiles(URL, DATA) {
-            await fetch(URL, {
-                'method': 'POST',
-                'headers': {
-                    'Content-Type': 'application/json'
-                },
-                'body': JSON.stringify(DATA)
-            })
-            return response.json();
-        }
-
-        document.getElementById('uploadBtn').onclick() = sendFiles(URL, DATA); */
+        /*document.getElementById('uploadBtn').onclick() = sendFiles(URL, DATA);  */
     });
 
 
