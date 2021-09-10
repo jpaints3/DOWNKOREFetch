@@ -1,4 +1,4 @@
-node_modules
+/node_modules
 tokensPlusAuth.txt
 bundle.js
 downkorefetch-firebase-adminsdk-vvk3o-db4abbfc4b.json
